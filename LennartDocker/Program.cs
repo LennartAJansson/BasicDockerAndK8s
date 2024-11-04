@@ -1,13 +1,15 @@
 using System.Net;
 using System.Net.Sockets;
 
+using Microsoft.Win32;
+
 //docker build --force-rm -t lennartdocker:1.0 -f .\LennartDocker\Dockerfile .
 //docker run --rm -it -p 12000:80 lennartdocker:1.0
 
 //docker build --force-rm -t lennartdocker:latest -f .\LennartDocker\Dockerfile .
 //docker tag lennartdocker:latest registry:5000/lennartdocker:1.1
 //docker push registry:5000/lennartdocker:1.1
-//helm upgrade --install lennartdocker lennartdockerdeploy --create-namespace --set Image=registry:5000/lennartdocker:1.1
+//helm upgrade --install lennartdocker lennartdockerdeploy --create-namespace --set Image=registry:5000/lennartdocker:1.1 --kubeconfig="${env:USERPROFILE}\.kube\config.ubk3s"
 //curl.exe http://lennartdocker.ubk3s/weatherforecast
 
 
