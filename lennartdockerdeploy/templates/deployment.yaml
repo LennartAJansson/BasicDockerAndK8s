@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: lennartdocker
+  labels: 
+    app: lennartdocker
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: lennartdocker
+  template:
+    metadata:
+      labels:
+        app: lennartdocker
+    spec:
+      containers:
+        - name: lennartdocker
+          image: {{ .Values.Image }}
+          imagePullPolicy: Always
+          ports:
+            - name: http
+              containerPort: 80
+              protocol: TCP
